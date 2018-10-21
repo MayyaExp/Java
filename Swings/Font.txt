@@ -1,0 +1,6 @@
+import java.awt.*;
+
+JLabel lbl=new JLabel("First Number");
+
+Font f = new Font("Serif", Font.PLAIN, 24);        
+lbl.setFont(f);

@@ -1,0 +1,35 @@
+
+import java.sql.*;
+import java.io.*;
+
+class CallableStatementExample
+{
+
+public static void main(String arg[])
+{
+Connection con=null;
+CallableStatement st=null;
+
+try
+{
+
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+con=DriverManager.getConnection("jdbc:odbc:oradsn","scott","tiger");
+
+st=con.prepareCall(" { call addEmp ( ?, ?, ? ) }" );
+
+st.setInt(1, 101);
+st.setString(2,"ann");
+st.setFloat(3, 2000);
+st.execute();
+
+st.cloae();
+con.close();
+}
+catch(Exception e)
+{
+System.out.println(e);
+}
+}
+}
+

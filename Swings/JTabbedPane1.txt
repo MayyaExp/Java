@@ -1,0 +1,32 @@
+JTabbedPane()
+
+
+void addTab(String, Component)	
+Adds a component represented by a title and no icon.
+
+int getSelectedIndex()	
+Returns the currently selected index for this tabbedpane.
+
+void setSelectedIndex(int index)
+
+
+tb=new JTabbedPane();
+tb.addTab("Font", jp);
+tb.addTab("Shading", jp1);
+tb.setSelectedIndex(0);
+
+tb.setSelectedIndex(tb.getSelectedIndex()+1);
+
+void insertTab(String, Icon, Component, String, int)	
+Inserts a component, at index, represented by a title and/or icon, either of which may be null.
+
+void setEnabled(int index,boolean val)
+
+boolean isEnabledAt(int)	
+Returns whether or not the tab at index is currently enabled.
+
+
+
+
+
+

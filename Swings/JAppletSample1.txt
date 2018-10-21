@@ -1,0 +1,43 @@
+
+import javax.swing.JApplet;
+
+public class MyApplet extends JApplet
+{
+JLabel lbl=new JLabel("Hello");
+
+public void init()
+{
+
+Container con=this.getContentPane();
+con.add(lbl);
+}
+
+public void start()
+{
+setBackground(Color.YELLOW);
+}
+public void stop()
+{
+setBackground(Color.BLUE);
+}
+public void paint(Graphics g)
+{
+g.drawImage(new URL(this.getDocumentBase(),"Fish.gif"), 0, 0, 200, 84, null);
+g.drawString("Hello How Are You", 35, 100);
+}
+public void destroy()
+{
+setBackground(Color.RED);
+}
+}
+
+
+
+
+
+
+
+
+
+
+

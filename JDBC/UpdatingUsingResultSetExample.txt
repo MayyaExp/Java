@@ -1,0 +1,62 @@
+
+import java.sql.*;
+import java.io.*;
+
+class UpdatingUsingResultSetExample
+{
+
+public static void main(String arg[])
+{
+
+Connection con=null;
+Statement st=null;
+ResultSet rs=null;
+
+int empno;
+String ename;
+float basic;
+char ans='y';
+
+BufferedReader y=new BufferedReader(new InputStreamReader(System.in));
+
+try
+{
+Class.forName("sun.jdbc.odbc.JbcOdbcDriver");
+con=DriverManager.getConnection("jdbc:odbc:oradsn","scott","tiger");
+st=con.createStetemnt(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+empno=Integer.parseInt(y.readLine());
+rs=st.executeQuery("select * from emp where empno="+empno);
+
+if(rs.next()==true)
+{
+ename=y.readLine();
+basic=Float.parseFloat(y.readLine());
+
+rs.updateInt("empno", empno);
+rs.updateString("ename", ename);
+rs.updateFloat("basic", basic);
+rs.updateRow();
+
+}
+
+rs.close();
+st.close();
+con.close);
+
+}
+catch(Exception e)
+{
+System.out.println(e);
+}
+
+}
+}
+
+
+
+
+
+
+
+

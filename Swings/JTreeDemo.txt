@@ -1,0 +1,47 @@
+
+
+public class JTreeDemo extends JFrame implements TreeSelectionListener
+{
+
+DefaultMutableTreeNode root=new DefaultMutableTreeNode("Departments");
+DefaultMutableTreeNode child1=new DefaultMutableTreeNode("Production");
+DefaultMutableTreeNode child2=new DefaultMutableTreeNode("Sales");
+
+JTree tree;
+
+JTextField txt=new JTextField(20);
+
+JTreeDemo()
+{
+
+Container con=this.getContentPane();
+con.setLayout(new FlowLayout());
+
+tree=new JTree(root);
+root.add(child1);
+root.add(child2);
+
+tree.addTreeSelectionListener(this);
+
+con.add(new JScrollPane(tree));
+setVisible(true);
+
+}
+
+public void valueChanged(TreeSelectionEvent e)
+{
+txt.setText(tree.getSelectedPathComponent().toString());
+}
+}
+
+
+class Test
+{
+public static void main(String arg[])
+{
+
+JTreeDemo d=new JTreeDemo();
+
+}
+}
+
